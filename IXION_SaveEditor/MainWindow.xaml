@@ -6,18 +6,23 @@
         xmlns:local="clr-namespace:IXION_SaveEditor"
         xmlns:viewModel ="clr-namespace:IXION_SaveEditor.MVVM.viewmodel"
         mc:Ignorable="d"
-        Title="IXION Save Editor" Height="400" Width="800"
+        Title="IXION Save Editor" Height="600" Width="800"
         Loaded="Window_Loaded"
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
-        AllowsTransparency="True">
+        AllowsTransparency="True"
+        FontSize="16">
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
     <Border Background="#272537"
             CornerRadius="20">
+        
         <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="img/background.jpg" Opacity="0.5"/>
+            </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150"/>
                 <ColumnDefinition/>
@@ -31,7 +36,7 @@
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        Foreground="White"
-                       FontSize="22"/>
+                       FontSize="28"/>
             <Grid Grid.Column="1" Margin="10,20,20,20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -72,7 +77,7 @@
                              Click="Citizens_Click"
                              />
             </StackPanel>
-            <StackPanel x:Name="SettingsSP" Grid.Column="1" Grid.Row="1" Margin="10,0,10,0" Visibility="Hidden">
+            <StackPanel x:Name="SettingsSP" Grid.Column="1" Grid.Row="1" Margin="10,0,10,0">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -81,32 +86,32 @@
                     <StackPanel Grid.Column="0" Margin="10,0,10,0">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0">
-                                <TextBlock Foreground="White" Height="15" Text="mode"/>
-                                <TextBlock Foreground="White" Height="15" Text="stockpileCapacityMultiplier"/>
-                                <TextBlock Foreground="White" Height="15" Text="stockpileTransporterCountModifier" />
-                                <TextBlock Foreground="White" Height="15" Text="accidentDeathCoeficient" />
-                                <TextBlock Foreground="White" Height="15" Text="accidentFrequency" />
-                                <TextBlock Foreground="White" Height="15" Text="eventTrustBonus" />
-                                <TextBlock Foreground="White" Height="15" Text="eventTrustMinus" />
-                                <TextBlock Foreground="White" Height="15" Text="hullNbRepairPerCycle" />
-                                <TextBlock Foreground="White" Height="15" Text="hullVohleMaxCapLoss" />
-                                <TextBlock Foreground="White" Height="15" Text="hullRepairAmount" />
+                                <TextBlock Foreground="White" Text="mode"/>
+                                <TextBlock Foreground="White" Text="stockpileCapacityMultiplier"/>
+                                <TextBlock Foreground="White" Text="stockpileTransporterCountModifier" />
+                                <TextBlock Foreground="White" Text="accidentDeathCoeficient" />
+                                <TextBlock Foreground="White" Text="accidentFrequency" />
+                                <TextBlock Foreground="White" Text="eventTrustBonus" />
+                                <TextBlock Foreground="White" Text="eventTrustMinus" />
+                                <TextBlock Foreground="White" Text="hullNbRepairPerCycle" />
+                                <TextBlock Foreground="White" Text="hullVohleMaxCapLoss" />
+                                <TextBlock Foreground="White" Text="hullRepairAmount" />
                             </StackPanel>
                             <StackPanel x:Name="spSettings1" Grid.Column="1" HorizontalAlignment="Stretch">
-                                <TextBox Foreground="White" Background="DarkGray" x:Name="mode" Height="15"/>
-                                <TextBox Foreground="White" Background="DarkGray" x:Name="stockpileCapacityMultiplier" Height="15"/>
-                                <TextBox Foreground="White" Background="DarkGray" x:Name="stockpileTransporterCountModifier" Height="15"/>
-                                <TextBox Foreground="White" Background="DarkGray" x:Name="accidentDeathCoeficient" Height="15"/>
-                                <TextBox Foreground="White" Background="DarkGray" x:Name="accidentFrequency" Height="15"/>
-                                <TextBox Foreground="White" Background="DarkGray" x:Name="eventTrustBonus" Height="15"/>
-                                <TextBox Foreground="White" Background="DarkGray" x:Name="eventTrustMinus" Height="15"/>
-                                <TextBox Foreground="White" Background="DarkGray" x:Name="hullNbRepairPerCycle" Height="15"/>
-                                <TextBox Foreground="White" Background="DarkGray" x:Name="hullVohleMaxCapLoss" Height="15"/>
-                                <TextBox Foreground="White" Background="DarkGray"  x:Name="hullRepairAmount" Height="15"/>
+                                <TextBox Height="21" Foreground="White" Background="DarkGray" x:Name="mode"/>
+                                <TextBox Height="21" Foreground="White" Background="DarkGray" x:Name="stockpileCapacityMultiplier"/>
+                                <TextBox Height="21" Foreground="White" Background="DarkGray" x:Name="stockpileTransporterCountModifier"/>
+                                <TextBox Height="21" Foreground="White" Background="DarkGray" x:Name="accidentDeathCoeficient"/>
+                                <TextBox Height="21" Foreground="White" Background="DarkGray" x:Name="accidentFrequency"/>
+                                <TextBox Height="21" Foreground="White" Background="DarkGray" x:Name="eventTrustBonus"/>
+                                <TextBox Height="21" Foreground="White" Background="DarkGray" x:Name="eventTrustMinus"/>
+                                <TextBox Height="21" Foreground="White" Background="DarkGray" x:Name="hullNbRepairPerCycle"/>
+                                <TextBox Height="21" Foreground="White" Background="DarkGray" x:Name="hullVohleMaxCapLoss"/>
+                                <TextBox Height="21" Foreground="White" Background="DarkGray"  x:Name="hullRepairAmount"/>
                             </StackPanel>
                         </Grid>
                     </StackPanel>
@@ -117,26 +122,26 @@
                                 <ColumnDefinition Width="auto" />
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0">
-                                <TextBlock Foreground="White" Height="15" Text="storyThreats"/>
-                                <TextBlock Foreground="White" Height="15" Text="populationMealFrequency"/>
-                                <TextBlock Foreground="White" Height="15" Text="populationPeopleFedPerFood" />
-                                <TextBlock Foreground="White" Height="15" Text="resourcesDepositsStorage" />
-                                <TextBlock Foreground="White" Height="15" Text="solarPanelEfficiency" />
-                                <TextBlock Foreground="White" Height="15" Text="trustMaxBonusCycle" />
-                                <TextBlock Foreground="White" Height="15" Text="trustMaxMinusCycle" />
-                                <TextBlock Foreground="White" Height="15" Text="workersCryopodsWorkerRatio" />
-                                <TextBlock Foreground="White" Height="15" Text="workersInjuriesRecoverSpeed" />
+                                <TextBlock Foreground="White" Text="storyThreats"/>
+                                <TextBlock Foreground="White" Text="populationMealFrequency"/>
+                                <TextBlock Foreground="White" Text="populationPeopleFedPerFood" />
+                                <TextBlock Foreground="White" Text="resourcesDepositsStorage" />
+                                <TextBlock Foreground="White" Text="solarPanelEfficiency" />
+                                <TextBlock Foreground="White" Text="trustMaxBonusCycle" />
+                                <TextBlock Foreground="White" Text="trustMaxMinusCycle" />
+                                <TextBlock Foreground="White" Text="workersCryopodsWorkerRatio" />
+                                <TextBlock Foreground="White" Text="workersInjuriesRecoverSpeed" />
                             </StackPanel>
                             <StackPanel x:Name="spSettings2" Grid.Column="1" HorizontalAlignment="Stretch">
-                                <TextBox Foreground="White" Background="DarkGray" x:Name="storyThreats" Height="15"/>
-                                <TextBox Foreground="White" Background="DarkGray" x:Name="populationMealFrequency" Height="15"/>
-                                <TextBox Foreground="White" Background="DarkGray" x:Name="populationPeopleFedPerFood" Height="15"/>
-                                <TextBox Foreground="White" Background="DarkGray" x:Name="resourcesDepositsStorage" Height="15"/>
-                                <TextBox Foreground="White" Background="DarkGray" x:Name="solarPanelEfficiency" Height="15"/>
-                                <TextBox Foreground="White" Background="DarkGray" x:Name="trustMaxBonusCycle" Height="15"/>
-                                <TextBox Foreground="White" Background="DarkGray" x:Name="trustMaxMinusCycle" Height="15"/>
-                                <TextBox Foreground="White" Background="DarkGray" x:Name="workersCryopodsWorkerRatio" Height="15"/>
-                                <TextBox Foreground="White" Background="DarkGray" x:Name="workersInjuriesRecoverSpeed" Height="15"/>
+                                <TextBox Height="21" Foreground="White" Background="DarkGray" x:Name="storyThreats"/>
+                                <TextBox Height="21" Foreground="White" Background="DarkGray" x:Name="populationMealFrequency"/>
+                                <TextBox Height="21" Foreground="White" Background="DarkGray" x:Name="populationPeopleFedPerFood"/>
+                                <TextBox Height="21" Foreground="White" Background="DarkGray" x:Name="resourcesDepositsStorage"/>
+                                <TextBox Height="21" Foreground="White" Background="DarkGray" x:Name="solarPanelEfficiency"/>
+                                <TextBox Height="21" Foreground="White" Background="DarkGray" x:Name="trustMaxBonusCycle"/>
+                                <TextBox Height="21" Foreground="White" Background="DarkGray" x:Name="trustMaxMinusCycle"/>
+                                <TextBox Height="21" Foreground="White" Background="DarkGray" x:Name="workersCryopodsWorkerRatio"/>
+                                <TextBox Height="21" Foreground="White" Background="DarkGray" x:Name="workersInjuriesRecoverSpeed"/>
                             </StackPanel>
                         </Grid>
                     </StackPanel>
@@ -147,6 +152,11 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
+                    <Grid.Resources>
+                        <Style TargetType="CheckBox">
+                            <Setter Property="FontSize" Value="12"/>
+                        </Style>
+                    </Grid.Resources>
                     <StackPanel x:Name="spSettings3" Grid.Column="0">
                         <CheckBox Foreground="White" Content="canAddResourcesInStockpile" />
                         <CheckBox Foreground="White" Content="disableHull" />

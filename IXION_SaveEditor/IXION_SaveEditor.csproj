@@ -8,8 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="img\" />
+    <None Remove="img\background.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="MVVM\model\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="img\background.jpg" />
   </ItemGroup>
 
 </Project>
