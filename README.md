@@ -1,7 +1,7 @@
 # IXION_SaveEditor
 Experimental Save Editor for IXION
 # Install Requirments #
-.NET Runtime 6.0.16 or higher
+.NET Runtime 6.0.16 or higher  
 Windows 10 or higher.
 # How to use #
 The Editor will automaticly load your last save. 
