@@ -1,0 +1,211 @@
+﻿<Window x:Class="IXION_SaveEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IXION_SaveEditor"
+        xmlns:viewModel ="clr-namespace:IXION_SaveEditor.MVVM.viewmodel"
+        mc:Ignorable="d"
+        Title="IXION Save Editor" Height="400" Width="800"
+        Loaded="Window_Loaded"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True">
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+    <Border Background="#272537"
+            CornerRadius="20">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <TextBlock Text="IXION"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Foreground="White"
+                       FontSize="22"/>
+            <Grid Grid.Column="1" Margin="10,20,20,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Background="DarkGray" Height="25" Click="Save_Click"  Margin="0,0,10,0" Grid.Column="0" Content="Save"/>
+                <Button Background="DarkGray" Height="25" Click="Reload_Click" Margin="10,0,10,0" Grid.Column="1" Content="Reload"/>
+                <Button Background="DarkGray" Height="25" Click="Exit_Click" Margin="10,0,0,0" Grid.Column="2" Content="Exit"/>
+            </Grid>
+            <StackPanel Grid.Row="1">
+                <RadioButton Content="Settings"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuTheme}"
+                             Click="Settings_Click"
+                             />
+                <RadioButton Content="Cheats"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuTheme}"
+                             Click="Cheats_Click"
+                             />
+                <RadioButton Content="Stability"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuTheme}"
+                             Click="Stability_Click"
+                             />
+                <RadioButton Content="Citizens"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuTheme}"
+                             Click="Citizens_Click"
+                             />
+            </StackPanel>
+            <StackPanel x:Name="SettingsSP" Grid.Column="1" Grid.Row="1" Margin="10,0,10,0" Visibility="Hidden">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Margin="10,0,10,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Foreground="White" Height="15" Text="mode"/>
+                                <TextBlock Foreground="White" Height="15" Text="stockpileCapacityMultiplier"/>
+                                <TextBlock Foreground="White" Height="15" Text="stockpileTransporterCountModifier" />
+                                <TextBlock Foreground="White" Height="15" Text="accidentDeathCoeficient" />
+                                <TextBlock Foreground="White" Height="15" Text="accidentFrequency" />
+                                <TextBlock Foreground="White" Height="15" Text="eventTrustBonus" />
+                                <TextBlock Foreground="White" Height="15" Text="eventTrustMinus" />
+                                <TextBlock Foreground="White" Height="15" Text="hullNbRepairPerCycle" />
+                                <TextBlock Foreground="White" Height="15" Text="hullVohleMaxCapLoss" />
+                                <TextBlock Foreground="White" Height="15" Text="hullRepairAmount" />
+                            </StackPanel>
+                            <StackPanel x:Name="spSettings1" Grid.Column="1" HorizontalAlignment="Stretch">
+                                <TextBox Foreground="White" Background="DarkGray" x:Name="mode" Height="15"/>
+                                <TextBox Foreground="White" Background="DarkGray" x:Name="stockpileCapacityMultiplier" Height="15"/>
+                                <TextBox Foreground="White" Background="DarkGray" x:Name="stockpileTransporterCountModifier" Height="15"/>
+                                <TextBox Foreground="White" Background="DarkGray" x:Name="accidentDeathCoeficient" Height="15"/>
+                                <TextBox Foreground="White" Background="DarkGray" x:Name="accidentFrequency" Height="15"/>
+                                <TextBox Foreground="White" Background="DarkGray" x:Name="eventTrustBonus" Height="15"/>
+                                <TextBox Foreground="White" Background="DarkGray" x:Name="eventTrustMinus" Height="15"/>
+                                <TextBox Foreground="White" Background="DarkGray" x:Name="hullNbRepairPerCycle" Height="15"/>
+                                <TextBox Foreground="White" Background="DarkGray" x:Name="hullVohleMaxCapLoss" Height="15"/>
+                                <TextBox Foreground="White" Background="DarkGray"  x:Name="hullRepairAmount" Height="15"/>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Margin="10,0,10,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Foreground="White" Height="15" Text="storyThreats"/>
+                                <TextBlock Foreground="White" Height="15" Text="populationMealFrequency"/>
+                                <TextBlock Foreground="White" Height="15" Text="populationPeopleFedPerFood" />
+                                <TextBlock Foreground="White" Height="15" Text="resourcesDepositsStorage" />
+                                <TextBlock Foreground="White" Height="15" Text="solarPanelEfficiency" />
+                                <TextBlock Foreground="White" Height="15" Text="trustMaxBonusCycle" />
+                                <TextBlock Foreground="White" Height="15" Text="trustMaxMinusCycle" />
+                                <TextBlock Foreground="White" Height="15" Text="workersCryopodsWorkerRatio" />
+                                <TextBlock Foreground="White" Height="15" Text="workersInjuriesRecoverSpeed" />
+                            </StackPanel>
+                            <StackPanel x:Name="spSettings2" Grid.Column="1" HorizontalAlignment="Stretch">
+                                <TextBox Foreground="White" Background="DarkGray" x:Name="storyThreats" Height="15"/>
+                                <TextBox Foreground="White" Background="DarkGray" x:Name="populationMealFrequency" Height="15"/>
+                                <TextBox Foreground="White" Background="DarkGray" x:Name="populationPeopleFedPerFood" Height="15"/>
+                                <TextBox Foreground="White" Background="DarkGray" x:Name="resourcesDepositsStorage" Height="15"/>
+                                <TextBox Foreground="White" Background="DarkGray" x:Name="solarPanelEfficiency" Height="15"/>
+                                <TextBox Foreground="White" Background="DarkGray" x:Name="trustMaxBonusCycle" Height="15"/>
+                                <TextBox Foreground="White" Background="DarkGray" x:Name="trustMaxMinusCycle" Height="15"/>
+                                <TextBox Foreground="White" Background="DarkGray" x:Name="workersCryopodsWorkerRatio" Height="15"/>
+                                <TextBox Foreground="White" Background="DarkGray" x:Name="workersInjuriesRecoverSpeed" Height="15"/>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+                <Grid Margin="10,10,10,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel x:Name="spSettings3" Grid.Column="0">
+                        <CheckBox Foreground="White" Content="canAddResourcesInStockpile" />
+                        <CheckBox Foreground="White" Content="disableHull" />
+                        <CheckBox Foreground="White" Content="disableTrust" />
+                        <CheckBox Foreground="White" Content="shipsTravelInstantly" />
+                        <CheckBox Foreground="White" Content="disableShipAutonomy" />
+                        <CheckBox Foreground="White" Content="buildShipsInstantly" />
+                        <CheckBox Foreground="White" Content="eventOptionsCompleteInstantly" />
+                        <CheckBox Foreground="White" Content="buildBuildingsInstantly" />
+                        <CheckBox Foreground="White" Content="disableBuildingAccidents" />
+                        <CheckBox Foreground="White" Content="disableCitizenDeath" />
+                    </StackPanel>
+                    <StackPanel x:Name="spSettings4" Grid.Column="1">
+                        <CheckBox Foreground="White" Content="disableCitizenInjury" />
+                        <CheckBox Foreground="White" Content="disableCitizenStarving" />
+                        <CheckBox Foreground="White" Content="crisisActivation" />
+                        <CheckBox Foreground="White" Content="hullAccidentDepletion" />
+                        <CheckBox Foreground="White" Content="hullEKPDepletion" />
+                        <CheckBox Foreground="White" Content="hullFreeRepair" />
+                        <CheckBox Foreground="White" Content="hullSectorDepletion" />
+                        <CheckBox Foreground="White" Content="hullVohleDepletion" />
+                        <CheckBox Foreground="White" Content="hullWeatherDepletion" />
+                        <CheckBox Foreground="White" Content="stabilityCryopodsMinus" />
+                    </StackPanel>
+                    <StackPanel x:Name="spSettings5" Grid.Column="2">
+                        <CheckBox Foreground="White" Content="stabilityDeathMinus" />
+                        <CheckBox Foreground="White" Content="stabilityHomelessMinus" />
+                        <CheckBox Foreground="White" Content="stabilityHomesicknessMinus" />
+                        <CheckBox Foreground="White" Content="stabilityHullIntegrityBonus" />
+                        <CheckBox Foreground="White" Content="stabilityOverworkMinus" />
+                        <CheckBox Foreground="White" Content="stabilityUnpoweredSectorMinus" />
+                        <CheckBox Foreground="White" Content="stabilityWeatherMinus" />
+                        <CheckBox Foreground="White" Content="strikeActivation" />
+                        <CheckBox Foreground="White" Content="weatherShipDestruction" />
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+            <StackPanel x:Name="CheatsSP" Grid.Column="1" Grid.Row="1" Margin="10 0 10 0" Visibility="Hidden">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel x:Name="spCheats1" Grid.Column="0" Margin="0,0,10,0" >
+                        <CheckBox Foreground="White" Content="allStellarObjectAreAccessible" />
+                        <CheckBox Foreground="White" Content="doNotRotateTorus" />
+                        <CheckBox Foreground="White" Content="recordIn60fps" />
+                    </StackPanel>
+                    <StackPanel x:Name="spCheats2" Grid.Column="1" HorizontalAlignment="Stretch">
+                        <CheckBox Foreground="White" Content="canBuildDebris" />
+                        <CheckBox Foreground="White" Content="allTechnologiesAreUnlockable" />
+                        <CheckBox Foreground="White" Content="unlockAllTechnologies" />
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+            <StackPanel x:Name="StabilitySP" Grid.Column="1" Grid.Row="1" Margin="10 0 10 0" Visibility="Hidden">
+            </StackPanel>
+            <StackPanel x:Name="CitizensSP" Grid.Column="1" Grid.Row="1" Margin="10 0 10 0" Visibility="Hidden">
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

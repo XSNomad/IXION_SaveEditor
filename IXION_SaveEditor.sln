@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33712.159
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IXION_SaveEditor", "IXION_SaveEditor\IXION_SaveEditor.csproj", "{95D36AD3-A545-48B8-8361-94C60CE6B362}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95D36AD3-A545-48B8-8361-94C60CE6B362}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95D36AD3-A545-48B8-8361-94C60CE6B362}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95D36AD3-A545-48B8-8361-94C60CE6B362}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95D36AD3-A545-48B8-8361-94C60CE6B362}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF52F8FE-800D-4996-9724-602B4D80E425}
+	EndGlobalSection
+EndGlobal
