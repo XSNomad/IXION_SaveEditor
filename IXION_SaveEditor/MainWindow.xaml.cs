@@ -6,8 +6,10 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using IXION_SaveEditor.core;
 using IXION_SaveEditor.MVVM.view;
 using IXION_SaveEditor.MVVM.viewmodel;
+using Microsoft.Win32;
 
 namespace IXION_SaveEditor
 {
@@ -134,10 +136,11 @@ namespace IXION_SaveEditor
             DirectoryInfo diTop = new(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData).Replace("Roaming", "LocalLow") + "\\BulwarkStudios\\Ixion\\Saves\\");
             DateTime lastSave = new(2018, 6, 25, 10, 21, 23);
             string lastSavePath = "";
-            foreach (var di in diTop.EnumerateDirectories("*"))
+            try
             {
-                try
-                {
+                foreach (var di in diTop.EnumerateDirectories("*"))
+            {
+
                     if (di.Name.Contains('-')) continue;
                     if (lastSave < di.CreationTime)
                     {
@@ -145,7 +148,26 @@ namespace IXION_SaveEditor
                         lastSavePath = di.FullName;
                     }
                 }
-                catch { }
+            }
+            catch (Exception ex)
+            {
+                string messageBoxText = $"Error Detecting Save: {ex}. Directory: {diTop}";
+                string caption = "Error";
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Warning;
+                MessageBox.Show(messageBoxText, caption, button, icon, MessageBoxResult.Yes);
+            }
+
+            if (lastSavePath == "")
+            {
+                var dlg = new FolderPicker
+                {
+                    InputPath = @"c:\"
+                };
+                if (dlg.ShowDialog() == true)
+                {
+                    lastSavePath = dlg.ResultPath;
+                }
             }
             return lastSavePath;
         }
